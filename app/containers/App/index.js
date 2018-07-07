@@ -17,6 +17,8 @@ import { Switch, Route } from 'react-router-dom';
 import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 
+import '../../styles/styles.scss';
+
 export default function App() {
   return (
     <div>
