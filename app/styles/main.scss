@@ -1,8 +1,9 @@
 @import "./_semantic-ui.wrapper";
 
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+
 @import "./_variables";
 @import "./_base";
+@import "./_component-styles";
 
-body {
-  color: $fontColor1;
-}
+

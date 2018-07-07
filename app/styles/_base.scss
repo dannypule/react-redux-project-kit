@@ -1,0 +1,24 @@
+body ::-webkit-scrollbar {
+  @include FontFamily;
+  width: 6px;
+  color: $fontColor1;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.material-icons {
+  color: $grey30;
+}
+
+.toastify > div {
+  @include FontFamily;
+  padding-left: 13px;
+  padding-right: 11px;
+  font-size: 16px;
+  border-radius: 3px;
+  font-weight: 500;
+  button {
+    margin-left: 5px;
+  }
+}
