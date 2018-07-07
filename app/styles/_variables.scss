@@ -1,1 +1,57 @@
-$foo: peru;
+$blue20: #d9e8ff; // highlight background for blue font
+$blue30: #afc1f1; // $inputBorderFocusColor
+$blue40: #4d7cfe; // blue primary - buttons, blue font
+$blue60: #2d69e9; //
+
+$black60: #36383c;
+
+$orange20: #eab86e; // highlight background for orange font
+$orange40: #ebb86e; // orange font
+$orange60: #ffab2e; // orange primary
+
+$grey4: #f5f6fa; // background or side panel
+$grey6: #ebecf1; // input borders
+$grey10: #e5e6eb; // borders
+$grey20: #e1e4eb; // grey connecting lines, scrollbars
+$grey30: #c6cdd7; // icons
+$grey40: #adb1b7; // icons
+$grey50: #9198a2; // font lighter lighter
+$grey60: #596072; // font lighter
+$grey70: #4b5165; // font
+
+$red5: #fad6d8; // red background
+$red18: #e65556; // item on $red5
+$red20: #ff555f; // when you need red - in a chart or something
+$red21: #fe4f4c; //
+$red50: #d93900; // airbnb red
+
+$primary: $blue40;
+$primaryDark1: $blue60;
+$secondary: $orange40;
+
+$borderColor: $grey10;
+$inputBorderColor: $grey6;
+$inputBorderFocusColor: #afc1f1;
+$iconColor: $grey30;
+$fontColor1: $grey60;
+$fontColor2: $grey50; // used for most fonts
+$fontColor3: $grey40; // used for larger fonts and/or uppercase fonts
+$fontColor4: $black60; // used for black fonts
+
+$borderRadius: 3px;
+$padding: 15px;
+
+@mixin borderRadius {
+  border-radius: $borderRadius !important;
+}
+@mixin FontFamily {
+  // font-family: 'Exo 2', sans-serif !important;
+  // font-family: 'Exo', sans-serif !important;
+  font-family: 'Source Sans Pro', sans-serif !important;
+}
+
+$xs: 576px;
+$sm: 768px;
+$md: 1024px;
+$lg: 1280px;
+
