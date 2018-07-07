@@ -8,8 +8,8 @@ import { increaseNumber, decreaseNumber } from '../../store/number/actions';
 const LocaleToggle = ({ increaseNumber, decreaseNumber, number }) => (
   <div>
     <div>{number}</div>
-    <Button onClick={increaseNumber}>+</Button>
-    <Button onClick={decreaseNumber}>-</Button>
+    <Button onClick={() => increaseNumber(2)}>+</Button>
+    <Button onClick={() => decreaseNumber(2)}>-</Button>
   </div>
 );
 
