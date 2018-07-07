@@ -1,5 +1,7 @@
-@import "./_variables.scss";
+@import "./_semantic-ui.wrapper";
+
+@import "./_variables";
 
 body {
-  background-color: $foo;
+  color: $foo;
 }
