@@ -5,18 +5,13 @@ import { Button } from 'semantic-ui-react';
 
 import { increaseNumber, decreaseNumber } from '../../store/number/actions';
 
-export class LocaleToggle extends React.PureComponent {
-  // eslint-disable-line react/prefer-stateless-function
-  render() {
-    return (
-      <div>
-        <div>{this.props.number}</div>
-        <Button onClick={this.props.increaseNumber}>+</Button>
-        <Button onClick={this.props.decreaseNumber}>-</Button>
-      </div>
-    );
-  }
-}
+const LocaleToggle = ({ increaseNumber, decreaseNumber, number }) => (
+  <div>
+    <div>{number}</div>
+    <Button onClick={increaseNumber}>+</Button>
+    <Button onClick={decreaseNumber}>-</Button>
+  </div>
+);
 
 LocaleToggle.propTypes = {
   increaseNumber: PropTypes.func,
