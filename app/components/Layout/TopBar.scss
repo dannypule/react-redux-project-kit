@@ -1,0 +1,86 @@
+.TopBar {
+  height: 60px;
+  border-bottom: 1px solid $borderColor;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  z-index: 999;
+  @media (max-width: $sm) {
+    height: 50px;
+  }
+  .topbar-default {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+    .links {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: $fontColor3;
+      .link {
+        padding: $padding;
+        cursor: pointer;
+        &:hover {
+          color: $fontColor2;
+        }
+      }
+    }
+  }
+  .topbar-logged-in {
+    .left-title {
+      color: $fontColor2;
+      font-size: 17px;
+      font-weight: 600;
+      margin-left: 18px;
+    }
+    .user-dropdown {
+      position: absolute;
+      right: 0;
+      display: flex;
+      align-items: center;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+      padding: 0 16px;
+      border-left: 1px solid $borderColor;
+      @media (max-width: $sm) {
+        display: none;
+      }
+      .dropdown {
+        > .text {
+          margin: 0 22px 0 6px;
+          padding: 15px 0;
+          font-weight: 700;
+          color: $fontColor4;
+          font-size: 14px;
+        }
+        > i.icon {
+          color: $iconColor;
+        }
+        > .menu {
+          right: 0;
+          top: 86%;
+        }
+      }
+    }
+    .burger-menu {
+      display: none;
+      position: absolute;
+      right: 18px;
+      height: 24px;
+      width: 24px;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      cursor: pointer;
+      @media (max-width: $sm) {
+        display: block;
+      }
+    }
+  }
+}

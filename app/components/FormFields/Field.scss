@@ -1,0 +1,52 @@
+.field {
+  padding: 0 0 $padding;
+  span.label {
+    margin: 0 0 3px 0;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 12px;
+    &.error {
+      color: $red21;
+    }
+  }
+  .ui.input {
+    height: 36px;
+    @include borderRadius;
+    width: 100%;
+    &.error {
+      input {
+        border-color: $red5 !important;
+      }
+    }
+    input {
+      border: 1px solid $inputBorderColor;
+      padding: 5px 7px;
+      border-radius: $borderRadius;
+      &:focus {
+        border-color: $inputBorderFocusColor;
+      }
+    }
+    i.material-icons {
+      font-size: 21px;
+    }
+    &.labeled {
+      .label {
+        background-color: $inputBorderColor;
+        padding-top: 0;
+        padding-bottom: 0;
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+
+  .ui.form textarea {
+    @include borderRadius;
+  }
+
+  .field-errors {
+    color: $red21;
+    font-weight: 500;
+    margin: 2px 1px 0;
+  }
+}

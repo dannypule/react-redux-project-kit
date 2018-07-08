@@ -13,19 +13,29 @@
 
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 import HomePage from 'containers/HomePage/Loadable';
 import UI from 'containers/UI/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
+import Login from 'containers/Login/Loadable';
+import Registration from 'containers/Registration/Loadable';
+import Layout from '../../components/Layout/Layout';
 
 export default function App() {
   return (
-    <div>
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/ui" component={UI} />
-        <Route component={NotFoundPage} />
-      </Switch>
+    // eslint-disable-next-line
+    <div> 
+      <Layout>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/ui" component={UI} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/register" component={Registration} />
+          <Route component={NotFoundPage} />
+        </Switch>
+      </Layout>
+      <ToastContainer autoClose={3000} hideProgressBar className="toastify" />
     </div>
   );
 }

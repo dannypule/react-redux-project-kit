@@ -2,8 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Button } from 'semantic-ui-react';
+import yup from 'yup'; // eslint-disable-line
 
 import { increaseNumber, decreaseNumber } from '../../store/number/actions';
+
+console.log(connect);
+console.log(yup);
 
 const LocaleToggle = ({ increaseNumber, decreaseNumber, number }) => (
   <div>

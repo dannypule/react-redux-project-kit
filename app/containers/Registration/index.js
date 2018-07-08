@@ -6,13 +6,11 @@
  */
 
 import React from 'react';
-// import { FormattedMessage } from 'react-intl';
-// import messages from './messages';
-import Foo from '../../components/Foo/Foo';
+import RegistrationForm from '../../components/Registration/RegistrationForm';
 
 /* eslint-disable react/prefer-stateless-function */
-export default class HomePage extends React.PureComponent {
+export default class Registration extends React.PureComponent {
   render() {
-    return <Foo />;
+    return <RegistrationForm />;
   }
 }

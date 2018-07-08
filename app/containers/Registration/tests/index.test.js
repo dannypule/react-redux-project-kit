@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import Login from '../index';
+import UI from '../index';
 
-describe('<Login />', () => {
+describe('<UI />', () => {
   it('should exist', () => {
-    const renderedComponent = shallow(<Login />);
+    const renderedComponent = shallow(<UI />);
     expect(renderedComponent).toBeTruthy();
   });
 });

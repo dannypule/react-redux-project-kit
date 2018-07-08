@@ -1,0 +1,16 @@
+.LoginForm {
+  margin: 50px 0 0;
+  display: flex;
+  justify-content: center;
+  .header {
+    text-align: center;
+    text-transform: uppercase;
+    margin: 2px 0 13px 0 !important;
+  }
+  .button {
+    width: 100%;
+  }
+  .ui.input.labeled .label {
+    justify-content: center;
+  }
+}

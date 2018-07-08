@@ -147,12 +147,15 @@
     ]
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-polyfill": "6.26.0",
     "chalk": "^2.4.1",
+    "classnames": "^2.2.6",
     "compression": "1.7.2",
     "cross-env": "5.2.0",
     "express": "4.16.3",
     "fontfaceobserver": "2.0.13",
+    "formik": "^0.11.11",
     "gridlex": "^2.7.1",
     "history": "4.7.2",
     "hoist-non-react-statics": "2.5.5",
@@ -162,10 +165,8 @@
     "ip": "1.1.5",
     "lodash": "4.17.10",
     "minimist": "1.2.0",
-    "moment": "^2.22.2",
     "prop-types": "15.6.1",
     "react": "16.4.1",
-    "react-datepicker": "^1.5.0",
     "react-dom": "16.4.1",
     "react-helmet": "5.2.0",
     "react-intl": "2.4.0",
@@ -177,13 +178,15 @@
     "redux": "4.0.0",
     "redux-immutable": "4.0.0",
     "redux-saga": "0.16.0",
+    "redux-thunk": "^2.3.0",
     "reselect": "3.0.1",
     "sanitize.css": "4.1.0",
     "semantic-ui-react": "^0.82.0",
     "semantic-ui-sass": "^2.3.1",
     "styled-components": "3.3.2",
     "warning": "4.0.1",
-    "whatwg-fetch": "2.0.4"
+    "whatwg-fetch": "2.0.4",
+    "yup": "^0.25.1"
   },
   "devDependencies": {
     "add-asset-html-webpack-plugin": "2.1.3",

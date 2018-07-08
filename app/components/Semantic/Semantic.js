@@ -17,8 +17,7 @@ import {
   Header,
 } from 'semantic-ui-react';
 import { toast } from 'react-toastify';
-import DatePicker from 'react-datepicker';
-import moment from 'moment';
+// import moment from 'moment';
 
 const panes = [
   {
@@ -121,9 +120,7 @@ const Semantic = () => (
     </div>
     <br />
     <br />
-    <div>
-      <DatePicker selected={moment()} />
-    </div>
+    <div>{/* <DatePicker selected={moment()} /> */}</div>
     <br />
     <br />
     <br />
