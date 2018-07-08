@@ -3,7 +3,7 @@ import { Formik } from 'formik';
 import { Card } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import Proptypes from 'prop-types';
-// import yup from 'yup';
+import { object, string } from 'yup';
 import { toast } from 'react-toastify';
 import Input from '../FormFields/Input';
 import Button from '../FormFields/Button';
@@ -27,15 +27,14 @@ class RegistrationForm extends React.Component {
     register({ firstName, lastName, email, password, actions, toast });
   };
 
-  // validationSchema = yup.object().shape({
-  //   firstName: yup.string().required('A first name is required.'),
-  //   lastName: yup.string().required('A last name is required.'),
-  //   email: yup
-  //     .string()
-  //     .email('A valid email is required.')
-  //     .required('An email is required.'),
-  //   password: yup.string().required('A password is required.'),
-  // });
+  validationSchema = object().shape({
+    firstName: string().required('A first name is required.'),
+    lastName: string().required('A last name is required.'),
+    email: string()
+      .email('A valid email is required.')
+      .required('An email is required.'),
+    password: string().required('A password is required.'),
+  });
 
   renderForm = ({
     values,
@@ -117,6 +116,7 @@ class RegistrationForm extends React.Component {
                 initialValues={this.initialValues}
                 onSubmit={this.onSubmit}
                 render={this.renderForm}
+                validationSchema={this.validationSchema}
               />
             </Card.Description>
           </Card.Content>
@@ -132,5 +132,3 @@ export default connect(
     register,
   },
 )(RegistrationForm);
-
-// validationSchema={this.validationSchema}

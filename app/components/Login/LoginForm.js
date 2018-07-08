@@ -3,19 +3,12 @@ import { Formik } from 'formik';
 import { Card } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import Proptypes from 'prop-types';
-// import yup from 'yup';
+import { object, string } from 'yup';
 import { toast } from 'react-toastify';
 import Input from '../FormFields/Input';
 import Button from '../FormFields/Button';
 import { login } from '../../store/auth/actions';
-// console.log(yup) // eslint-disable-line
-// const validationSchema = yup.object().shape({
-//   email: yup
-//     .string()
-//     .email('A valid email is required.')
-//     .required('An email is required.'),
-//   password: yup.string().required('A password is required.'),
-// });
+console.log(object) // eslint-disable-line
 
 class LoginForm extends React.Component {
   static propTypes = {
@@ -32,6 +25,13 @@ class LoginForm extends React.Component {
     const { login } = this.props;
     login({ email, password, actions, toast });
   };
+
+  validationSchema = object().shape({
+    email: string()
+      .email('A valid email is required.')
+      .required('An email is required.'),
+    password: string().required('A password is required.'),
+  });
 
   renderForm = ({
     values,
@@ -86,6 +86,7 @@ class LoginForm extends React.Component {
                 initialValues={this.initialValues}
                 onSubmit={this.onSubmit}
                 render={this.renderForm}
+                validationSchema={this.validationSchema}
               />
             </Card.Description>
           </Card.Content>
@@ -102,5 +103,3 @@ export default connect(
     login,
   },
 )(LoginForm);
-
-// validationSchema={validationSchema}
