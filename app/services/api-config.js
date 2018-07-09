@@ -17,3 +17,4 @@ const getApiRootUsingHostname = () => {
 const backendHost = getApiRootUsingHostname() || 'http://localhost:5566';
 
 export const API_ROOT = `${backendHost}/api`;
+console.log(`API_ROOT: ${API_ROOT}`);
