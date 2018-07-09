@@ -1,0 +1,18 @@
+@import "./_variables";
+@import "~react-toastify/dist/ReactToastify.css";
+@import "./_semantic-ui.wrapper";
+@import "./_semantic-overrides";
+
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700);
+
+@import "./_base";
+@import "../components/Layout/Layout.scss";
+@import "../components/Layout/SideMenu.scss";
+@import "../components/Layout/TopBar.scss";
+@import "../components/Login/LoginForm.scss";
+@import "../components/Registration/RegistrationForm.scss";
+@import "../components/FormFields/Field.scss";
+@import "../components/common/SpinnerForButton";
+
+
