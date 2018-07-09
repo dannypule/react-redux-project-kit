@@ -6,9 +6,9 @@ const getApiRootUsingHostname = () => {
 
   if (!hostname) return null;
 
-  if (hostname === 'react-project-kit') {
+  if (hostname.includes('react-project-kit')) {
     return 'https://mango-node.herokuapp.com';
-  } else if (hostname === 'react-project-kit-staging') {
+  } else if (hostname.includes('react-project-kit-staging')) {
     return 'https://node-project-kit-staging.herokuapp.com';
   }
   return process.env.REACT_APP_BACKEND_HOST || 'http://localhost:5566';
