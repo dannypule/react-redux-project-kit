@@ -6,10 +6,10 @@ const getApiRootUsingHostname = () => {
 
   if (!hostname) return null;
 
-  if (hostname.includes('react-project-kit')) {
-    return 'https://node-project-kit.herokuapp.com';
-  } else if (hostname.includes('react-project-kit-staging')) {
+  if (hostname.includes('react-project-kit-staging')) {
     return 'https://node-project-kit-staging.herokuapp.com';
+  } else if (hostname.includes('react-project-kit')) {
+    return 'https://node-project-kit.herokuapp.com';
   }
   return process.env.REACT_APP_BACKEND_HOST || 'http://localhost:5566';
 };
@@ -17,3 +17,4 @@ const getApiRootUsingHostname = () => {
 const backendHost = getApiRootUsingHostname() || 'http://localhost:5566';
 
 export const API_ROOT = `${backendHost}/api`;
+console.log(`API_ROOT: ${API_ROOT}`);
