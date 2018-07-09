@@ -8,8 +8,7 @@ import { LOCATION_CHANGE } from 'react-router-redux';
 
 import languageProviderReducer from 'containers/LanguageProvider/reducer';
 import numberReducer from './number/reducer';
-import chartReducer from './auth/reducer';
-import authReducer from './chart/reducer';
+import authReducer from './auth/reducer';
 
 /*
  * routeReducer
@@ -38,7 +37,7 @@ export function routeReducer(state = routeInitialState, action) {
       return state;
   }
 }
-
+console.log(authReducer) // eslint-disable-line
 /**
  * Creates the main reducer with the dynamically injected ones
  */
@@ -47,7 +46,6 @@ export default function createReducer(injectedReducers) {
     route: routeReducer,
     language: languageProviderReducer,
     num: numberReducer,
-    chart: chartReducer,
     auth: authReducer,
     ...injectedReducers,
   });

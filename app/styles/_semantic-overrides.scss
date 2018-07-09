@@ -6,7 +6,7 @@ body ::-webkit-scrollbar {
   font-size: 15px;
   min-height: 36px;
   padding: 0 25px;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: inherit;
 }
 
@@ -79,7 +79,7 @@ body ::-webkit-scrollbar {
     cursor: pointer;
     background-color: transparent;
   }
-  > span,
+  > a,
   > button {
     padding: 11px 16px;
     width: 100%;

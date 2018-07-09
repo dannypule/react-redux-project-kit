@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Dropdown, Image } from 'semantic-ui-react';
 import Proptypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 class TopBar extends Component {
   static propTypes = {
@@ -34,13 +35,17 @@ class TopBar extends Component {
     ];
     return (
       <div className="topbar-default">
+        <span className="left-title">Yatta Health Club</span>
         <div className="links">
           {links.map(link => (
-            // <Link key={link.href} href={link.href}>
-            <span key={link.href} className="link">
+            <Link
+              key={link.href}
+              href={link.href}
+              to={link.href}
+              className="link"
+            >
               {link.text}
-            </span>
-            // </Link>
+            </Link>
           ))}
         </div>
       </div>
@@ -58,19 +63,19 @@ class TopBar extends Component {
         <Dropdown inline text="Fenton Bentley">
           <Dropdown.Menu>
             <Dropdown.Item>
-              {/* <Link href="/contact"> */}
-              <span>Contact</span>
-              {/* </Link> */}
+              <Link href="/contact" to="/contact">
+                <span>Contact</span>
+              </Link>
             </Dropdown.Item>
             <Dropdown.Item>
-              {/* <Link href="/about"> */}
-              <span>About</span>
-              {/* </Link> */}
+              <Link href="/about" to="/about">
+                <span>About</span>
+              </Link>
             </Dropdown.Item>
             <Dropdown.Item>
-              {/* <Link href="/profile"> */}
-              <span>Profile</span>
-              {/* </Link> */}
+              <Link href="/profile" to="/profile">
+                <span>Profile</span>
+              </Link>
             </Dropdown.Item>
             <Dropdown.Item>
               <button onClick={this.logout}>Logout</button>

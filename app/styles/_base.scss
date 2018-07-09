@@ -1,7 +1,5 @@
-body ::-webkit-scrollbar {
+body {
   @include FontFamily;
-  width: 6px;
-  color: $fontColor1;
   overflow: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
