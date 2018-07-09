@@ -1,7 +1,8 @@
-// import Router from 'next/router'
+import { push } from 'react-router-redux';
+import { toast } from 'react-toastify';
 import { post } from '../../services/apiService';
 
-export const login = ({ email, password, actions, toast }) => dispatch =>
+export const login = ({ email, password, actions }) => dispatch =>
   post('/auth/login', {
     email,
     password,
@@ -9,7 +10,7 @@ export const login = ({ email, password, actions, toast }) => dispatch =>
     .then(res => {
       actions.setSubmitting(false);
       dispatch({ type: 'LOGIN_SUCCESS' });
-      // Router.push('/');
+      dispatch(push('/'));
       console.log(res);
     })
     .catch(err => {
@@ -24,7 +25,6 @@ export const register = ({
   email,
   password,
   actions,
-  toast,
 }) => dispatch =>
   post('/auth/register', {
     firstName,
@@ -35,11 +35,8 @@ export const register = ({
     .then(res => {
       actions.setSubmitting(false);
       dispatch({ type: 'REGISTER_SUCCESS' });
-      // Router.push('/login').then(() =>
-      //   toast.success(
-      //     'Successfully created account. Please login to continue.',
-      //   ),
-      // );
+      dispatch(push('/login'));
+      toast.success('Successfully created account. Please login to continue.');
       console.log(res);
     })
     .catch(err => {
@@ -50,5 +47,6 @@ export const register = ({
 
 export const logout = () => dispatch => {
   dispatch({ type: 'LOGOUT' });
-  // Router.push('/login');
+  dispatch(push('/login'));
+  toast.info('Logged out.');
 };

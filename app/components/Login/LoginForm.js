@@ -4,7 +4,6 @@ import { Card } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import Proptypes from 'prop-types';
 import { object, string } from 'yup';
-import { toast } from 'react-toastify';
 import Input from '../FormFields/Input';
 import Button from '../FormFields/Button';
 import { login } from '../../store/auth/actions';
@@ -23,7 +22,7 @@ class LoginForm extends React.Component {
   onSubmit = (values, actions) => {
     const { email, password } = values;
     const { login } = this.props;
-    login({ email, password, actions, toast });
+    login({ email, password, actions });
   };
 
   validationSchema = object().shape({

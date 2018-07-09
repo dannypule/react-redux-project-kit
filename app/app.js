@@ -34,7 +34,7 @@ import configureStore from './store/configureStore';
 import { translationMessages } from './i18n';
 
 // Import CSS reset and Global Styles
-import '././styles/main.scss';
+import '././styles/styles.scss';
 
 // Create redux store with history
 const initialState = {};
