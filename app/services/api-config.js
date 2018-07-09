@@ -7,7 +7,7 @@ const getApiRootUsingHostname = () => {
   if (!hostname) return null;
 
   if (hostname.includes('react-project-kit')) {
-    return 'https://mango-node.herokuapp.com';
+    return 'https://node-project-kit.herokuapp.com';
   } else if (hostname.includes('react-project-kit-staging')) {
     return 'https://node-project-kit-staging.herokuapp.com';
   }
