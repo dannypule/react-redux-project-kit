@@ -1,8 +1,154 @@
-/* Semantic UI Sass variable overrides */
-// more variable here: node_modules/semantic-ui-sass/scss/globals/_variables.scss
+//************************
+//    VARIABLES
+//    more variable here: node_modules/semantic-ui-sass/scss/globals/_variables.scss
+//************************
 $icons-font-path: '~semantic-ui-sass/icons';
 $flags-image-path: '~semantic-ui-sass/images';
 $font-name: 'Source Sans Pro';
 
-/* Import Semantic UI Sass */
+//************************
+//    IMPORT LIB
+//************************
 @import '~semantic-ui-sass/semantic-ui.scss';
+
+
+//************************
+//    OVERRIDES
+//************************
+body ::-webkit-scrollbar {
+  width: 6px;
+}
+.ui.button {
+  @include FontFamily;
+  font-size: 15px;
+  min-height: 36px;
+  padding: 0 25px;
+  font-weight: 600;
+  text-transform: inherit;
+}
+
+.ui.button:disabled, .ui.buttons .disabled.button, .ui.disabled.active.button, .ui.disabled.button, .ui.disabled.button:hover {
+  opacity: 1 !important;
+}
+
+// primary button
+.ui.primary.button,
+.ui.primary.buttons .button {
+  background-color: $primary;
+  @include borderRadius;
+}
+
+.ui.primary.button:active,
+.ui.primary.buttons .button:active {
+  background-color: darken($color: $primary, $amount: 7);
+}
+
+.ui.primary.button:focus,
+.ui.primary.buttons .button:focus {
+  background-color: darken($color: $primary, $amount: 7);
+}
+
+.ui.primary.button:hover,
+.ui.primary.buttons .button:hover {
+  background-color: darken($color: $primary, $amount: 7);
+}
+
+// secondary button
+.ui.secondary.button,
+.ui.secondary.buttons .button {
+  background-color: $secondary;
+}
+
+.ui.secondary.button:active,
+.ui.secondary.buttons .button:active {
+  background-color: darken($color: $secondary, $amount: 7);
+}
+
+.ui.secondary.button:focus,
+.ui.secondary.buttons .button:focus {
+  background-color: darken($color: $secondary, $amount: 7);
+}
+
+.ui.secondary.button:hover,
+.ui.secondary.buttons .button:hover {
+  background-color: darken($color: $secondary, $amount: 7);
+}
+
+.ui.dropdown {
+  user-select: none;
+}
+
+.ui.dropdown .menu {
+  @include borderRadius;
+  box-shadow: none !important;
+}
+
+.ui.dropdown .menu > .item {
+  padding: 0 !important;
+  &:hover {
+    color: $fontColor2 !important;
+  }
+  button {
+    border: none;
+    padding: 0;
+    line-height: inherit;
+    @include FontFamily;
+    cursor: pointer;
+    background-color: transparent;
+  }
+  > a,
+  > button {
+    padding: 11px 16px;
+    width: 100%;
+    display: inline-block;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    color: $fontColor2;
+  }
+}
+
+.ui.dropdown .menu > .item:hover {
+  background-color: $grey4;
+  color: $fontColor1;
+}
+
+.ui.card {
+  @include borderRadius;
+}
+
+.ui.card,
+.ui.cards > .card {
+  box-shadow: none;
+  border: 1px solid $borderColor;
+}
+
+.ui.card > .content > .header,
+.ui.cards > .card > .content > .header {
+  color: $fontColor3;
+}
+
+.ui.card > .content,
+.ui.cards > .card > .content {
+  padding: $padding;
+  @include borderRadius;
+}
+
+.ui.card > .content > .header,
+.ui.cards > .card > .content > .header {
+  @include FontFamily;
+}
+
+.ui.card > .content,
+.ui.cards > .card > .content {
+  @include FontFamily;
+}
+
+.ui.popup {
+  @include borderRadius;
+}
+
+.ui.accordion .accordion .title,
+.ui.accordion .title {
+  @include FontFamily;
+}
