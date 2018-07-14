@@ -5,21 +5,36 @@ import { Button } from 'semantic-ui-react';
 import yup from 'yup'; // eslint-disable-line
 
 import { increaseNumber, decreaseNumber } from '../../store/number/actions';
+import { getUsers, addUser } from '../../store/users/actions';
 
-console.log(connect);
-console.log(yup);
-
-const LocaleToggle = ({ increaseNumber, decreaseNumber, number }) => (
+const LocaleToggle = ({
+  increaseNumber,
+  decreaseNumber,
+  number,
+  getUsers,
+  addUser,
+}) => (
   <div>
-    <div>{number}</div>
-    <Button onClick={() => increaseNumber(2)}>+</Button>
-    <Button onClick={() => decreaseNumber(2)}>-</Button>
+    <div>
+      <div>{number}</div>
+      <Button onClick={() => increaseNumber(2)}>+</Button>
+      <Button onClick={() => decreaseNumber(2)}>-</Button>
+    </div>
+    <br />
+    <Button primary onClick={() => getUsers()}>
+      Get Users
+    </Button>
+    <Button primary onClick={() => addUser()}>
+      Add User
+    </Button>
   </div>
 );
 
 LocaleToggle.propTypes = {
   increaseNumber: PropTypes.func,
   decreaseNumber: PropTypes.func,
+  getUsers: PropTypes.func,
+  addUser: PropTypes.func,
   number: PropTypes.number,
 };
 
@@ -28,5 +43,7 @@ export default connect(
   {
     increaseNumber,
     decreaseNumber,
+    getUsers,
+    addUser,
   },
 )(LocaleToggle);

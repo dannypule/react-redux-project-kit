@@ -7,8 +7,9 @@ import { fromJS } from 'immutable';
 import { LOCATION_CHANGE } from 'react-router-redux';
 
 import languageProviderReducer from 'containers/LanguageProvider/reducer';
-import numberReducer from './number/reducer';
 import authReducer from './auth/reducer';
+import numberReducer from './number/reducer';
+import usersReducer from './users/reducer';
 
 /*
  * routeReducer
@@ -37,7 +38,7 @@ export function routeReducer(state = routeInitialState, action) {
       return state;
   }
 }
-console.log(authReducer) // eslint-disable-line
+
 /**
  * Creates the main reducer with the dynamically injected ones
  */
@@ -47,6 +48,7 @@ export default function createReducer(injectedReducers) {
     language: languageProviderReducer,
     num: numberReducer,
     auth: authReducer,
+    users: usersReducer,
     ...injectedReducers,
   });
 }

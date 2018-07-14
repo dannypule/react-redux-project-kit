@@ -7,7 +7,6 @@ import { object, string } from 'yup';
 import Input from '../FormFields/Input';
 import Button from '../FormFields/Button';
 import { login } from '../../store/auth/actions';
-console.log(object) // eslint-disable-line
 
 class LoginForm extends React.Component {
   static propTypes = {
@@ -19,10 +18,10 @@ class LoginForm extends React.Component {
     password: 'supersecure',
   };
 
-  onSubmit = (values, actions) => {
+  onSubmit = values => {
     const { email, password } = values;
     const { login } = this.props;
-    login({ email, password, actions });
+    login({ email, password });
   };
 
   validationSchema = object().shape({
