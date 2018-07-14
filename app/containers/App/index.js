@@ -13,7 +13,6 @@
 
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
 
 import HomePage from 'containers/HomePage/Loadable';
 import UI from 'containers/UI/Loadable';
@@ -35,7 +34,6 @@ export default function App() {
           <Route component={NotFoundPage} />
         </Switch>
       </Layout>
-      <ToastContainer autoClose={3000} hideProgressBar className="toastify" />
     </div>
   );
 }

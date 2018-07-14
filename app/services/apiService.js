@@ -1,9 +1,10 @@
 import axios from 'axios';
-import { API_ROOT } from './api-config';
-
-// @todo set headers for each request
+import { toast } from 'react-toastify';
+import { API_ROOT } from './apiConfig';
+import cookies from './cookieService';
 
 const handleCatch = err => {
+  toast.error('Something went wrong. Please try again.');
   if (err && err.response && err.response.data && err.response.data.error) {
     throw err.response.data;
   } else {
@@ -11,26 +12,35 @@ const handleCatch = err => {
   }
 };
 
-export const get = url =>
-  axios
-    .get(`${API_ROOT}${url}`)
+const instance = axios.create({
+  baseURL: API_ROOT,
+  timeout: 5000,
+});
+
+const apiService = {};
+
+apiService.get = url =>
+  instance
+    .get(url, { headers: { Authorization: cookies.get('token') } })
     .then(res => res.data)
     .catch(handleCatch);
 
-export const post = (url, data = {}) =>
-  axios
-    .post(`${API_ROOT}${url}`, data)
+apiService.post = (url, data = {}) =>
+  instance
+    .post(url, data, { headers: { Authorization: cookies.get('token') } })
     .then(res => res.data)
     .catch(handleCatch);
 
-export const put = (url, data = {}) =>
-  axios
-    .put(`${API_ROOT}${url}`, data)
+apiService.put = (url, data = {}) =>
+  instance
+    .put(url, data, { headers: { Authorization: cookies.get('token') } })
     .then(res => res.data)
     .catch(handleCatch);
 
-export const del = (url, data = {}) =>
-  axios
-    .delete(`${API_ROOT}${url}`, data)
+apiService.del = (url, data = {}) =>
+  instance
+    .delete(url, data, { headers: { Authorization: cookies.get('token') } })
     .then(res => res.data)
     .catch(handleCatch);
+
+export default apiService;
