@@ -18,10 +18,11 @@ class LoginForm extends React.Component {
     password: 'supersecure',
   };
 
-  onSubmit = values => {
+  onSubmit = (values, formikFunctions) => {
     const { email, password } = values;
     const { login } = this.props;
-    login({ email, password });
+    const { setSubmitting } = formikFunctions;
+    login({ email, password, setSubmitting });
   };
 
   validationSchema = object().shape({
@@ -95,7 +96,6 @@ class LoginForm extends React.Component {
 }
 
 export default connect(
-  // state => ({ number: state.get('num').number }),
   null,
   {
     login,
