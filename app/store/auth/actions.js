@@ -3,22 +3,28 @@ import { toast } from 'react-toastify';
 import apiService from '../../services/apiService';
 import cookies from '../../services/cookieService';
 
-export const login = ({ email, password }) => dispatch =>
+export const login = ({ email, password, setSubmitting }) => dispatch =>
   apiService
     .post('/auth/login', {
       email,
       password,
     })
     .then(res => {
+      console.log(res);
+      if (!res.ok) {
+        toast.error('Email or password are incorrect.');
+        cookies.set('token', '');
+        setSubmitting(false);
+        return;
+      }
       dispatch({ type: 'LOGGED_IN' });
       dispatch(push('/'));
-      console.log(res);
       cookies.set('token', res.data.token);
     })
-    .catch(err => {
+    .catch(() => {
       toast.error('Failed to login. Please try again.');
-      console.log(err);
       cookies.set('token', '');
+      setSubmitting(false);
     });
 
 export const register = ({
