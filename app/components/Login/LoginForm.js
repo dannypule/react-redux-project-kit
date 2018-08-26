@@ -14,15 +14,14 @@ class LoginForm extends React.Component {
   };
 
   initialValues = {
-    email: 'Super.Admin@fake-email.infoz',
-    password: 'supersecure',
+    email: '',
+    password: '',
   };
 
-  onSubmit = (values, formikFunctions) => {
+  onSubmit = (values, formikActions) => {
     const { email, password } = values;
     const { login } = this.props;
-    const { setSubmitting } = formikFunctions;
-    login({ email, password, setSubmitting });
+    login({ email, password, formikActions });
   };
 
   validationSchema = object().shape({
