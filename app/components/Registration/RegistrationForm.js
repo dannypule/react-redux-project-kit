@@ -14,16 +14,16 @@ class RegistrationForm extends React.Component {
   };
 
   initialValues = {
-    firstName: 'bob',
-    lastName: 'bobby',
-    email: 'boby@gmail.com',
-    password: 'admin1',
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
   };
 
-  onSubmit = (values, actions) => {
+  onSubmit = (values, formikActions) => {
     const { firstName, lastName, email, password } = values;
     const { register } = this.props;
-    register({ firstName, lastName, email, password, actions });
+    register({ firstName, lastName, email, password, formikActions });
   };
 
   validationSchema = object().shape({

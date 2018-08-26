@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import apiService from '../../services/apiService';
 import cookies from '../../services/cookieService';
 
-export const login = ({ email, password, setSubmitting }) => dispatch =>
+export const login = ({ email, password, formikActions }) => dispatch =>
   apiService
     .post('/auth/login', {
       email,
@@ -12,19 +12,19 @@ export const login = ({ email, password, setSubmitting }) => dispatch =>
     .then(res => {
       console.log(res);
       if (!res.ok) {
-        toast.error('Email or password are incorrect.');
+        toast.error(res.message, 5000);
         cookies.set('token', '');
-        setSubmitting(false);
+        formikActions.setSubmitting(false);
         return;
       }
+      cookies.set('token', res.data.token);
       dispatch({ type: 'LOGGED_IN' });
       dispatch(push('/'));
-      cookies.set('token', res.data.token);
     })
     .catch(() => {
       toast.error('Failed to login. Please try again.');
       cookies.set('token', '');
-      setSubmitting(false);
+      formikActions.setSubmitting(false);
     });
 
 export const register = ({
@@ -32,6 +32,7 @@ export const register = ({
   lastName,
   email,
   password,
+  formikActions,
 }) => dispatch =>
   apiService
     .post('/auth/register', {
@@ -41,16 +42,22 @@ export const register = ({
       password,
     })
     .then(res => {
+      if (!res.ok) {
+        toast.error(res.message, 5000);
+        cookies.set('token', '');
+        formikActions.setSubmitting(false);
+        return;
+      }
+      toast.success('Successfully created account.', 3000);
+      cookies.set('token', res.data.token);
       dispatch({ type: 'REGISTER_SUCCESS' });
-      dispatch(push('/login'));
-      toast.success('Successfully created account. Please login to continue.');
-      console.log(res);
-      // todo - set cookie for token
+      dispatch(push('/'));
     })
     .catch(err => {
-      toast.error(err.message);
       console.log(err);
+      toast.error(err.message);
       cookies.set('token', '');
+      formikActions.setSubmitting(false);
     });
 
 export const logout = () => dispatch => {
