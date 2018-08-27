@@ -48,7 +48,7 @@ export const register = ({
         formikActions.setSubmitting(false);
         return;
       }
-      toast.success('Successfully created account.', 3000);
+      toast.success('Successfully created account.', 30000);
       cookies.set('token', res.data.token);
       dispatch({ type: 'LOGGED_IN' });
       dispatch(push('/'));

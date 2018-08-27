@@ -7,11 +7,14 @@ const defaultTimeout = 3000;
 
 export default {
   info: (msg, timeout = defaultTimeout) =>
-    toast.info(msg, { ...options, timeout }),
+    toast.info(msg, { ...options, autoClose: timeout }),
+
   warning: (msg, timeout = defaultTimeout) =>
-    toast.warning(msg, { ...options, timeout }),
+    toast.warning(msg, { ...options, autoClose: timeout }),
+
   success: (msg, timeout = defaultTimeout) =>
-    toast.success(msg, { ...options, timeout }),
+    toast.success(msg, { ...options, autoClose: timeout }),
+
   error: (msg, timeout = defaultTimeout) =>
-    toast.error(msg, { ...options, timeout }),
+    toast.error(msg, { ...options, autoClose: timeout }),
 };
