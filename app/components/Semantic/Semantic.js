@@ -17,7 +17,6 @@ import {
   Header,
 } from 'semantic-ui-react';
 import { toast } from 'react-toastify';
-// import moment from 'moment';
 
 const panes = [
   {

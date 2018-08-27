@@ -1,7 +1,7 @@
 import { push } from 'react-router-redux';
-import { toast } from 'react-toastify';
 import apiService from '../../services/apiService';
 import cookies from '../../services/cookieService';
+import toast from '../../services/toastService';
 
 export const login = ({ email, password, formikActions }) => dispatch =>
   apiService
@@ -50,7 +50,7 @@ export const register = ({
       }
       toast.success('Successfully created account.', 3000);
       cookies.set('token', res.data.token);
-      dispatch({ type: 'REGISTER_SUCCESS' });
+      dispatch({ type: 'LOGGED_IN' });
       dispatch(push('/'));
     })
     .catch(err => {
