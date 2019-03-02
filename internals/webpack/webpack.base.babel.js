@@ -37,15 +37,15 @@ module.exports = options => ({
         // Preprocess our own .css files
         // This is the place to add your own loaders (e.g. sass/less etc.)
         // for a list of loaders, see https://webpack.js.org/loaders/#styling
-        test: /\.scss$/,
+        test: /\.(scss$|css)$/,
         exclude: /node_modules/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         // Preprocess 3rd party .css files located in node_modules
-        test: /\.css$/,
+        test: /\.(scss$|css)$/,
         include: /node_modules/,
-        use: ['style-loader', 'css-loader'],
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(eot|otf|ttf|woff|woff2)$/,
@@ -114,13 +114,8 @@ module.exports = options => ({
     ],
   },
   plugins: options.plugins.concat([
-    new webpack.ProvidePlugin({
-      // make fetch available
-      fetch: 'exports-loader?self.fetch!whatwg-fetch',
-    }),
-
     // Always expose NODE_ENV to webpack, in order to use `process.env.NODE_ENV`
-    // inside your code for any environment checks; UglifyJS will automatically
+    // inside your code for any environment checks; Terser will automatically
     // drop any unreachable code.
     new webpack.DefinePlugin({
       'process.env': {

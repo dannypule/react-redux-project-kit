@@ -5,7 +5,7 @@ import { ToastContainer } from 'react-toastify';
 
 import TopBar from './TopBar';
 import SideMenu from './SideMenu';
-import { logout, getAuthStatus } from '../../store/auth/actions';
+import { logout, getAuthStatus } from '../../redux/auth/actions';
 
 // eslint-disable-next-line
 class Layout extends Component {

@@ -6,7 +6,7 @@ import Proptypes from 'prop-types';
 import { object, string } from 'yup';
 import Input from '../FormFields/Input';
 import Button from '../FormFields/Button';
-import { login } from '../../store/auth/actions';
+import { login } from '../../redux/auth/actions';
 
 class LoginForm extends React.Component {
   static propTypes = {
