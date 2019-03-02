@@ -82,6 +82,5 @@ export default function App() {
 //       <Footer />
 //       <GlobalStyle />
 //     </AppWrapper>
-// >>>>>>> b136b0c2465691826fbc78efc3a47ea78c164c34
   );
 }
