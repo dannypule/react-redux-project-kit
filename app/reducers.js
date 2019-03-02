@@ -8,14 +8,20 @@ import { connectRouter } from 'connected-react-router/immutable';
 import history from 'utils/history';
 import globalReducer from 'containers/App/reducer';
 import languageProviderReducer from 'containers/LanguageProvider/reducer';
+import authReducer from './redux/auth/reducer';
+import numberReducer from './redux/number/reducer';
+import usersReducer from './redux/users/reducer';
 
 /**
  * Merges the main reducer with the router state and dynamically injected reducers
  */
 export default function createReducer(injectedReducers = {}) {
   const rootReducer = combineReducers({
+    auth: authReducer,
     global: globalReducer,
     language: languageProviderReducer,
+    num: numberReducer,
+    users: usersReducer,
     ...injectedReducers,
   });
 

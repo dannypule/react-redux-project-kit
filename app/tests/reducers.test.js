@@ -4,7 +4,7 @@
 
 import { fromJS } from 'immutable';
 import { LOCATION_CHANGE } from 'react-router-redux';
-import { routeReducer } from '../store/reducers';
+import { routeReducer } from '../redux/reducers';
 
 describe('route reducer', () => {
   it('should return the initial state', () => {
