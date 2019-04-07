@@ -6,7 +6,7 @@ import { Accordion, Icon } from 'semantic-ui-react';
 // import { // to be used when connecting to store
 //   increaseNumber,
 //   decreaseNumber,
-// } from '../../store/actions/numberActions'
+// } from '../../redux/actions/numberActions'
 
 class SideMenu extends Component {
   // static propTypes = {

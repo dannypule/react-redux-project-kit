@@ -5,7 +5,7 @@
 import { memoryHistory } from 'react-router-dom';
 import { put } from 'redux-saga/effects';
 
-import configureStore from '../../store/configureStore';
+import configureStore from '../../configureStore';
 import getInjectors, {
   injectSagaFactory,
   ejectSagaFactory,
@@ -68,9 +68,9 @@ describe('injectors', () => {
       expect(() => ejectSaga(1)).toThrow();
     });
 
-    it('should cancel a saga in a default mode', () => {
+    it('should cancel a saga in RESTART_ON_REMOUNT mode', () => {
       const cancel = jest.fn();
-      store.injectedSagas.test = { task: { cancel } };
+      store.injectedSagas.test = { task: { cancel }, mode: RESTART_ON_REMOUNT };
       ejectSaga('test');
 
       expect(cancel).toHaveBeenCalled();

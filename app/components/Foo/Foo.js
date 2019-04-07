@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { Button } from 'semantic-ui-react';
 import yup from 'yup'; // eslint-disable-line
 
-import { increaseNumber, decreaseNumber } from '../../store/number/actions';
-import { getUsers, addUser } from '../../store/users/actions';
+import { increaseNumber, decreaseNumber } from '../../redux/number/actions';
+import { getUsers, addUser } from '../../redux/users/actions';
 
 const LocaleToggle = ({
   increaseNumber,
