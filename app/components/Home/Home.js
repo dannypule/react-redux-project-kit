@@ -53,7 +53,7 @@ class Home extends React.Component {
           </Button.Group>
         </div>
         <br />
-        <Row>
+        <Row gutter={10}>
           <Col span={12}>
             <Card>
               <Row>
