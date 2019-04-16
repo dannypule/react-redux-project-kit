@@ -2,11 +2,11 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import HomePage from '../index';
-import Foo from '../../../components/Foo/Foo';
+import Home from '../../../components/Home/Home';
 
 describe('<HomePage />', () => {
   it('should render the page message', () => {
     const renderedComponent = shallow(<HomePage />);
-    expect(renderedComponent.contains(<Foo />)).toEqual(true);
+    expect(renderedComponent.contains(<Home />)).toEqual(true);
   });
 });

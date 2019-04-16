@@ -8,11 +8,11 @@
 import React from 'react';
 // import { FormattedMessage } from 'react-intl';
 // import messages from './messages';
-import Foo from '../../components/Foo/Foo';
+import Home from '../../components/Home/Home';
 
 /* eslint-disable react/prefer-stateless-function */
 export default class HomePage extends React.PureComponent {
   render() {
-    return <Foo />;
+    return <Home />;
   }
 }
