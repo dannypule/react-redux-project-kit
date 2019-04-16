@@ -60,45 +60,6 @@ export function* addUserRequest({ payload }) {
   }
 }
 
-// export function* switchToCashRequest() {
-//   try {
-//     const riskLevel = 0;
-//     const potUuid = yield select(potSelected);
-//     const params = {
-//       potUuid,
-//       investmentStyle: INVESTMENT_STYLE,
-//       riskLevel,
-//     };
-//     const { data } = yield call(switchToCashCall, params);
-
-//     yield put(switchToCash.success(data));
-//   } catch (error) {
-//     yield put(switchToCash.failure(error.message));
-//   }
-// }
-
-// export function* potAllocationRequest({ payload }) {
-//   try {
-//     const { data } = yield call(potAllocationCall, payload);
-
-//     yield put(potAllocation.success(data));
-//   } catch (error) {
-//     yield put(potAllocation.failure(error.message));
-//   }
-// }
-
-// export function* potHoldingsRequest({ payload }) {
-//   try {
-//     const {
-//       data: { holdings },,
-//     } = yield call(potHoldingsCall, payload);
-
-//     yield put(potHoldings.success(holdings));
-//   } catch (error) {
-//     yield put(potHoldings.failure(error.message));
-//   }
-// }
-
 export default function* sagas() {
   yield takeEvery(getUsers.REQUEST, getUsersRequest);
   yield takeEvery(addUser.REQUEST, addUserRequest);
