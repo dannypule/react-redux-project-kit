@@ -55,8 +55,8 @@ class Home extends React.Component {
         <br />
 
         <Grid>
-          <div className="col-6">
-            <Card>
+          <Col col={6} xs={12} sm={6}>
+            <Card size="small">
               <Grid>
                 <Col sm={6} md={12}>
                   <Input
@@ -129,18 +129,19 @@ class Home extends React.Component {
                 </Col>
               </Grid>
             </Card>
-          </div>
-          <div className="col-6">
-            <Card>
-              <div className="row">
+          </Col>
+
+          <Col col={6} xs={12} sm={6}>
+            <Card size="small">
+              <Grid className="row">
                 {users.content.map(user => (
-                  <div key={user.uuid} className="col">
+                  <Col key={user.uuid}>
                     <p>{user.email}</p>
-                  </div>
+                  </Col>
                 ))}
-              </div>
+              </Grid>
             </Card>
-          </div>
+          </Col>
         </Grid>
       </Fragment>
     );

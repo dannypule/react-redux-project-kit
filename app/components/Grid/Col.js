@@ -1,14 +1,14 @@
 import React from 'react';
 import { node, number } from 'prop-types';
-import classnames from 'classnames';
 
 export const Col = ({ children, col, xs, sm, md, lg }) => {
-  const classNames = classnames({
-    col: !xs && !sm && !md && !lg,
-    [`col-${col}_lg-${lg}_md-${md}_sm-${sm}_xs-${xs}`]: col
-  });
+  let className = `col-${col}`;
+  if (lg) className += `_lg-${lg}`;
+  if (md) className += `_md-${md}`;
+  if (sm) className += `_sm-${sm}`;
+  if (xs) className += `_xs-${xs}`;
 
-  return <div className={classNames}>{children}</div>;
+  return <div className={className}>{children}</div>;
 };
 
 Col.propTypes = {
@@ -22,8 +22,8 @@ Col.propTypes = {
 
 Col.defaultProps = {
   col: 12,
-  xs: 12,
-  sm: 12,
-  md: 12,
-  lg: 12
+  xs: null,
+  sm: null,
+  md: null,
+  lg: null
 };
