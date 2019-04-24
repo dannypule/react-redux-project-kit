@@ -10,12 +10,12 @@ import { login } from '../../redux/auth/actions';
 
 class LoginForm extends React.Component {
   static propTypes = {
-    login: Proptypes.func,
+    login: Proptypes.func
   };
 
   initialValues = {
     email: '',
-    password: '',
+    password: ''
   };
 
   onSubmit = (values, formikActions) => {
@@ -28,7 +28,7 @@ class LoginForm extends React.Component {
     email: string()
       .email('A valid email is required.')
       .required('An email is required.'),
-    password: string().required('A password is required.'),
+    password: string().required('A password is required.')
   });
 
   renderForm = ({
@@ -38,7 +38,7 @@ class LoginForm extends React.Component {
     handleChange,
     handleBlur,
     handleSubmit,
-    isSubmitting,
+    isSubmitting
   }) => (
     <form
       onSubmit={e => {
@@ -69,7 +69,14 @@ class LoginForm extends React.Component {
         errors={errors}
         touched={touched}
       />
-      <Button text="Login" type="submit" primary isSubmitting={isSubmitting} />
+      <Button
+        htmlType="submit"
+        type="primary"
+        isSubmitting={isSubmitting}
+        block
+      >
+        Login
+      </Button>
     </form>
   );
 
@@ -97,6 +104,6 @@ class LoginForm extends React.Component {
 export default connect(
   null,
   {
-    login,
-  },
+    login
+  }
 )(LoginForm);
