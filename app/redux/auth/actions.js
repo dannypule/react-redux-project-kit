@@ -7,7 +7,7 @@ export const login = ({ email, password, formikActions }) => dispatch =>
   apiService
     .post('/auth/login', {
       email,
-      password,
+      password
     })
     .then(res => {
       console.log(res);
@@ -32,14 +32,14 @@ export const register = ({
   lastName,
   email,
   password,
-  formikActions,
+  formikActions
 }) => dispatch =>
   apiService
     .post('/auth/register', {
       firstName,
       lastName,
       email,
-      password,
+      password
     })
     .then(res => {
       if (!res.ok) {

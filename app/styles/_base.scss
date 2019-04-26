@@ -5,6 +5,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+button {
+  cursor: pointer;
+  outline: 0;
+}
+
 .material-icons {
   color: $grey30;
 }

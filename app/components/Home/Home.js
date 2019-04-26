@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import Button from 'antd/lib/button';
 import Input from 'antd/lib/input';
 import Card from 'antd/lib/card';
-import yup from 'yup'; // eslint-disable-line
 
 import { increaseNumber, decreaseNumber } from '../../redux/number/actions';
 import { getUsers, addUser } from '../../redux/users/actions';

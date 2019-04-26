@@ -1,60 +1,12 @@
 .SideMenu {
-  width: 170px;
   border-right: 1px solid $borderColor;
   background-color: #ffffff;
+  
   @media (max-width: $sm) {
     display: none;
   }
-  .menu-items {
-    padding: 50px 17px 0;
-    .list {
-      .item {
-        padding: 13px 0;
-        font-size: 17px;
-        font-weight: 500;
-        color: $fontColor2;
-      }
-    }
-    .accordion {
-      user-select: none;
-      .accordion-item {
-        padding: 9px 0;
 
-        .title {
-          padding-right: 18px;
-          position: relative;
-          color: $fontColor3;
-          font-size: 14px;
-          font-weight: 600;
-          text-transform: uppercase;
-          &:hover:not(.active) {
-            color: $fontColor2;
-            i.dropdown {
-              color: $fontColor2;
-            }
-          }
-          &.active {
-            color: $primary;
-            i.dropdown {
-              color: $primary;
-            }
-          }
-          i.dropdown {
-            position: absolute;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            margin: auto 0;
-            color: $grey30;
-          }
-        }
-        .content {
-          background-color: #f5f6fa;
-          padding: 4px 8px !important;
-          border-radius: 2px;
-          color: $fontColor2;
-        }
-      }
-    }
+  &__menu {
+    border: none !important;
   }
 }
