@@ -2,7 +2,7 @@
   border-right: 1px solid $borderColor;
   background-color: #ffffff;
   
-  @media (max-width: $sm) {
+  @media (max-width: $md) {
     display: none;
   }
 

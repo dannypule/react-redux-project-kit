@@ -10,7 +10,7 @@
   background-color: #ffffff;
   z-index: 999;
   
-  @media (max-width: $sm) {
+  @media (max-width: $md) {
     height: 50px;
   }
 
@@ -57,7 +57,7 @@
     margin: auto 0;
     padding: 0 16px;
     border-left: 1px solid $borderColor;
-    @media (max-width: $sm) {
+    @media (max-width: $md) {
       display: none;
     }
     .ant-dropdown-link {
@@ -82,7 +82,7 @@
     bottom: 0;
     margin: auto;
     cursor: pointer;
-    @media (max-width: $sm) {
+    @media (max-width: $md) {
       display: block;
     }
   }
