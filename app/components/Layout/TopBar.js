@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
-import { Dropdown, Image } from 'semantic-ui-react';
+import Menu from 'antd/lib/menu';
+import Dropdown from 'antd/lib/dropdown';
+import Avatar from 'antd/lib/avatar';
 import Proptypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { ChevronRight } from '@material-ui/icons';
 
 class TopBar extends Component {
   static propTypes = {
     loggedIn: Proptypes.bool,
-    logout: Proptypes.func,
+    logout: Proptypes.func
   };
 
   logout = () => {
@@ -18,31 +21,31 @@ class TopBar extends Component {
     const links = [
       {
         href: '/login',
-        text: 'Login',
+        text: 'Login'
       },
       {
         href: '/register',
-        text: 'Register',
+        text: 'Register'
       },
       {
         href: '/contact',
-        text: 'Contact',
+        text: 'Contact'
       },
       {
         href: '/about',
-        text: 'About',
-      },
+        text: 'About'
+      }
     ];
     return (
-      <div className="topbar-default">
-        <span className="left-title">Yatta Health Club</span>
-        <div className="links">
+      <div className="TopBar__default">
+        <span className="TopBar__left-title">Yatta Health Club</span>
+        <div className="TopBar__left-links">
           {links.map(link => (
             <Link
               key={link.href}
               href={link.href}
               to={link.href}
-              className="link"
+              className="TopBar__left-link"
             >
               {link.text}
             </Link>
@@ -52,38 +55,29 @@ class TopBar extends Component {
     );
   };
 
+  menu = () => (
+    <Menu>
+      <Menu.Item>
+        <Link href="/profile" to="/profile">
+          <span>Profile</span>
+        </Link>
+      </Menu.Item>
+      <Menu.Item onClick={this.logout}>Logout</Menu.Item>
+    </Menu>
+  );
+
   renderLoggedIn = () => (
-    <div className="topbar-logged-in">
-      <span className="left-title">Yatta Health Club</span>
-      <span className="user-dropdown">
-        <Image
-          src="https://api.adorable.io/avatars/45/abott@adorable.pngCopy"
-          avatar
-        />
-        <Dropdown inline text="Fenton Bentley">
-          <Dropdown.Menu>
-            <Dropdown.Item>
-              <Link href="/contact" to="/contact">
-                <span>Contact</span>
-              </Link>
-            </Dropdown.Item>
-            <Dropdown.Item>
-              <Link href="/about" to="/about">
-                <span>About</span>
-              </Link>
-            </Dropdown.Item>
-            <Dropdown.Item>
-              <Link href="/profile" to="/profile">
-                <span>Profile</span>
-              </Link>
-            </Dropdown.Item>
-            <Dropdown.Item>
-              <button onClick={this.logout}>Logout</button>
-            </Dropdown.Item>
-          </Dropdown.Menu>
+    <div>
+      <span className="TopBar__left-title">Yatta Health Club</span>
+      <span className="TopBar__user-dropdown">
+        <Avatar src="https://api.adorable.io/avatars/45/abott@adorable.pngCopy" />
+        <Dropdown overlay={this.menu} trigger={['click']}>
+          <button type="button" className="ant-dropdown-link" href="#">
+            Fenton Bently <ChevronRight />
+          </button>
         </Dropdown>
       </span>
-      <div className="burger-menu">
+      <div className="TopBar__burger-menu">
         <i className="material-icons">menu</i>
       </div>
     </div>

@@ -1,15 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Button from 'antd/lib/button';
 import Input from 'antd/lib/input';
 import Card from 'antd/lib/card';
-import Row from 'antd/lib/row';
-import Col from 'antd/lib/col';
-import yup from 'yup'; // eslint-disable-line
 
 import { increaseNumber, decreaseNumber } from '../../redux/number/actions';
 import { getUsers, addUser } from '../../redux/users/actions';
+import { Grid, Col } from '../Grid';
 
 class Home extends React.Component {
   state = {
@@ -18,7 +16,7 @@ class Home extends React.Component {
     email: `${new Date().getTime()}@fake-email.infozzz`,
     password: 'admin',
     userRoleCode: 30,
-    companyId: 2,
+    companyId: 2
   };
 
   render() {
@@ -28,7 +26,7 @@ class Home extends React.Component {
       number,
       getUsersRequest,
       addUserRequest,
-      users,
+      users
     } = this.props;
     const {
       firstName,
@@ -36,11 +34,11 @@ class Home extends React.Component {
       email,
       password,
       userRoleCode,
-      companyId,
+      companyId
     } = this.state;
 
     return (
-      <div>
+      <Fragment>
         <div>
           <div>{number}</div>
           <Button.Group>
@@ -52,12 +50,14 @@ class Home extends React.Component {
             </Button>
           </Button.Group>
         </div>
+
         <br />
-        <Row gutter={10}>
-          <Col span={12}>
-            <Card>
-              <Row>
-                <Col span={24}>
+
+        <Grid>
+          <Col col={6} xs={12} sm={6}>
+            <Card size="small">
+              <Grid>
+                <Col sm={6} md={12}>
                   <Input
                     addonBefore="First name"
                     value={firstName}
@@ -66,9 +66,8 @@ class Home extends React.Component {
                     }
                   />
                 </Col>
-              </Row>
-              <Row>
-                <Col span={24}>
+
+                <Col sm={6} md={12}>
                   <Input
                     addonBefore="Last name"
                     value={lastName}
@@ -77,9 +76,7 @@ class Home extends React.Component {
                     }
                   />
                 </Col>
-              </Row>
-              <Row>
-                <Col span={24}>
+                <Col col={12}>
                   <Input
                     addonBefore="Email"
                     value={email}
@@ -88,9 +85,7 @@ class Home extends React.Component {
                     }
                   />
                 </Col>
-              </Row>
-              <Row>
-                <Col span={24}>
+                <Col col={12}>
                   <Input
                     addonBefore="Password"
                     value={password}
@@ -99,9 +94,7 @@ class Home extends React.Component {
                     }
                   />
                 </Col>
-              </Row>
-              <Row>
-                <Col span={24}>
+                <Col col={12}>
                   <Input
                     addonBefore="User Role Code"
                     value={userRoleCode}
@@ -110,9 +103,7 @@ class Home extends React.Component {
                     }
                   />
                 </Col>
-              </Row>
-              <Row>
-                <Col span={24}>
+                <Col col={12}>
                   <Input
                     addonBefore="Company ID"
                     value={companyId}
@@ -121,10 +112,8 @@ class Home extends React.Component {
                     }
                   />
                 </Col>
-              </Row>
 
-              <Row>
-                <Col span={24}>
+                <Col col={12}>
                   <Button.Group>
                     <Button type="primary" onClick={() => getUsersRequest(42)}>
                       Get Users
@@ -137,22 +126,23 @@ class Home extends React.Component {
                     </Button>
                   </Button.Group>
                 </Col>
-              </Row>
+              </Grid>
             </Card>
           </Col>
-          <Col span={12}>
-            <Card>
-              <Row>
+
+          <Col col={6} xs={12} sm={6}>
+            <Card size="small">
+              <Grid className="row">
                 {users.content.map(user => (
-                  <Col key={user.uuid} span={24}>
+                  <Col key={user.uuid}>
                     <p>{user.email}</p>
                   </Col>
                 ))}
-              </Row>
+              </Grid>
             </Card>
           </Col>
-        </Row>
-      </div>
+        </Grid>
+      </Fragment>
     );
   }
 }
@@ -163,18 +153,18 @@ Home.propTypes = {
   getUsersRequest: PropTypes.func,
   addUserRequest: PropTypes.func,
   number: PropTypes.number,
-  users: PropTypes.object,
+  users: PropTypes.object
 };
 
 export default connect(
   state => ({
     number: state.get('num').number,
-    users: state.get('users').users,
+    users: state.get('users').users
   }),
   {
     increaseNumber,
     decreaseNumber,
     getUsersRequest: getUsers.request,
-    addUserRequest: addUser.request,
-  },
+    addUserRequest: addUser.request
+  }
 )(Home);
