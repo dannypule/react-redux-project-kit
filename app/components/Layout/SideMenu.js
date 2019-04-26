@@ -23,6 +23,19 @@ class SideMenu extends Component {
           url: '/profile'
         }
       ]
+    },
+    {
+      title: 'Settings',
+      content: [
+        {
+          title: 'Create new health club',
+          url: '/create-new-health-club'
+        },
+        {
+          title: 'Health club settings',
+          url: '/health-club-settings'
+        }
+      ]
     }
   ];
 
@@ -32,7 +45,7 @@ class SideMenu extends Component {
         <Menu
           className="SideMenu__menu"
           onClick={this.handleClick}
-          style={{ width: 170 }}
+          style={{ width: 220 }}
           defaultSelectedKeys={[]}
           defaultOpenKeys={[]}
           mode="inline"
