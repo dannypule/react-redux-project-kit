@@ -1,33 +1,18 @@
 import React from 'react';
-import { Button } from 'semantic-ui-react';
+import Button from 'antd/lib/button';
 import Proptypes from 'prop-types';
 import SpinnerForButton from '../common/SpinnerForButton';
 
-const Component = ({
-  text,
-  disabled,
-  type,
-  primary,
-  secondary,
-  isSubmitting,
-}) => (
-  <Button
-    type={type}
-    primary={primary || false}
-    secondary={secondary || false}
-    disabled={disabled || isSubmitting}
-  >
-    {isSubmitting ? <SpinnerForButton /> : text}
+const Component = ({ children, isSubmitting, disabled, ...props }) => (
+  <Button disabled={disabled || isSubmitting} {...props}>
+    {isSubmitting ? <SpinnerForButton /> : children}
   </Button>
 );
 
 Component.propTypes = {
-  text: Proptypes.string.isRequired,
-  type: Proptypes.string.isRequired,
+  children: Proptypes.node.isRequired,
   isSubmitting: Proptypes.bool,
-  disabled: Proptypes.bool,
-  primary: Proptypes.bool,
-  secondary: Proptypes.bool,
+  disabled: Proptypes.bool
 };
 
 export default Component;

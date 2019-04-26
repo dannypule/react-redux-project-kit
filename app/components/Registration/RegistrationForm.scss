@@ -2,16 +2,19 @@
   margin: 50px 0 0;
   display: flex;
   justify-content: center;
-  .ui.card {
+  
+  &__card {
     width: 100%;
     max-width: 400px;
   }
-  .header {
+
+  &__title {
     text-align: center;
     text-transform: uppercase;
     margin: 2px 0 13px 0 !important;
   }
-  .button {
-    width: 100%;
+
+  &__fields {
+    margin: 0 0 15px 0; 
   }
 }

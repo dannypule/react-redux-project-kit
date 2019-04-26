@@ -1,136 +1,75 @@
 import React, { Component } from 'react';
-// import Link from 'next/link' // use to link to new view
-import { Accordion, Icon } from 'semantic-ui-react';
-// import { connect } from 'react-redux' // to be used when connecting to store
-// import Proptypes from 'prop-types' // to be used when connecting to store
-// import { // to be used when connecting to store
-//   increaseNumber,
-//   decreaseNumber,
-// } from '../../redux/actions/numberActions'
+import { Link } from 'react-router-dom';
+import Menu from 'antd/lib/menu';
+
+const { SubMenu } = Menu;
 
 class SideMenu extends Component {
-  // static propTypes = {
-  //   increaseNumber: Proptypes.func,
-  //   decreaseNumber: Proptypes.func,
-  //   number: Proptypes.number,
-  // }
-  state = { activeIndex: -1 };
-
-  handleClick = (e, titleProps) => {
-    const { index } = titleProps;
-    const { activeIndex } = this.state;
-    const newIndex = activeIndex === index ? -1 : index;
-
-    this.setState({ activeIndex: newIndex });
-  };
-
-  Menu = () => {
-    const { activeIndex } = this.state;
-    const menu = [
-      {
-        title: 'Overview',
-        content: [
-          {
-            title: 'foo',
-            url: 'foo',
-          },
-        ],
-      },
-      {
-        title: 'Members',
-        content: [
-          {
-            title: 'foo',
-            url: 'foo',
-          },
-        ],
-      },
-      {
-        title: 'Billing',
-        content: [
-          {
-            title: 'foo',
-            url: 'foo',
-          },
-        ],
-      },
-      {
-        title: 'Marketing',
-        content: [
-          {
-            title: 'foo',
-            url: 'foo',
-          },
-        ],
-      },
-      {
-        title: 'Website',
-        content: [
-          {
-            title: 'foo',
-            url: 'foo',
-          },
-        ],
-      },
-      {
-        title: 'Sales',
-        content: [
-          {
-            title: 'foo',
-            url: 'foo',
-          },
-        ],
-      },
-      {
-        title: 'Gym',
-        content: [
-          {
-            title: 'foo',
-            url: 'foo',
-          },
-        ],
-      },
-    ];
-    return (
-      <div className="menu-items">
-        <Accordion>
-          {menu.map((item, i) => (
-            <div className="accordion-item" key={item.title}>
-              <Accordion.Title
-                active={activeIndex === i}
-                index={i}
-                onClick={this.handleClick}
-              >
-                <Icon name="dropdown" />
-                {item.title}
-              </Accordion.Title>
-              <Accordion.Content active={activeIndex === i}>
-                foo
-              </Accordion.Content>
-            </div>
-          ))}
-        </Accordion>
-      </div>
-    );
-  };
+  menu = [
+    {
+      title: 'Members',
+      content: [
+        {
+          title: 'Home',
+          url: '/'
+        }
+      ]
+    },
+    {
+      title: 'Billing',
+      content: [
+        {
+          title: 'Profile',
+          url: '/profile'
+        }
+      ]
+    },
+    {
+      title: 'Settings',
+      content: [
+        {
+          title: 'Create new health club',
+          url: '/create-new-health-club'
+        },
+        {
+          title: 'Health club settings',
+          url: '/health-club-settings'
+        }
+      ]
+    }
+  ];
 
   render() {
     return (
       <div className="SideMenu">
-        <this.Menu />
+        <Menu
+          className="SideMenu__menu"
+          onClick={this.handleClick}
+          style={{ width: 220 }}
+          defaultSelectedKeys={[]}
+          defaultOpenKeys={[]}
+          mode="inline"
+          forceSubMenuRender
+          selectable={false}
+        >
+          {this.menu.map(subMenuItem => (
+            <SubMenu
+              key={subMenuItem.title}
+              title={<span>{subMenuItem.title}</span>}
+            >
+              {subMenuItem.content.map(menuItem => (
+                <Menu.Item key={menuItem.title}>
+                  <Link to={menuItem.url}>
+                    <span>{menuItem.title}</span>
+                  </Link>
+                </Menu.Item>
+              ))}
+            </SubMenu>
+          ))}
+        </Menu>
       </div>
     );
   }
 }
-
-// export default connect( // to be used when connecting to store
-//   state => ({
-//     number: state.num.number,
-//   }),
-//   {
-//     increaseNumber,
-//     decreaseNumber,
-//   },
-// )(SideMenu)
 
 export default SideMenu;

@@ -9,10 +9,12 @@
   left: 0;
   background-color: #ffffff;
   z-index: 999;
-  @media (max-width: $sm) {
+  
+  @media (max-width: $md) {
     height: 50px;
   }
-  .left-title {
+
+  &__left-title {
     color: $fontColor2;
     font-size: 17px;
     font-weight: 600;
@@ -23,69 +25,65 @@
     margin: auto 0;
     height: 17px;
   }
-  .topbar-default {
+
+  &__default {
     width: 100%;
     display: flex;
     justify-content: flex-end;
+  }
 
-    .links {
-      font-size: 14px;
+  &__left-links {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  &__left-link {
+    color: $fontColor3;
+    padding: $padding;
+    cursor: pointer;
+    &:hover {
+      color: $fontColor2;
+    }
+  }
+
+  &__user-dropdown {
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    padding: 0 16px;
+    border-left: 1px solid $borderColor;
+    @media (max-width: $md) {
+      display: none;
+    }
+    .ant-dropdown-link {
+      margin: 0 22px 0 14px;
+      padding: 15px 0;
       font-weight: 700;
-      text-transform: uppercase;
-      .link {
-        color: $fontColor3;
-        padding: $padding;
-        cursor: pointer;
-        &:hover {
-          color: $fontColor2;
-        }
+      color: $fontColor3;
+      font-size: 14px;
+      > i.anticon {
+        color: $iconColor;
       }
     }
   }
-  .topbar-logged-in {
-    .user-dropdown {
-      position: absolute;
-      right: 0;
-      display: flex;
-      align-items: center;
-      top: 0;
-      bottom: 0;
-      margin: auto 0;
-      padding: 0 16px;
-      border-left: 1px solid $borderColor;
-      @media (max-width: $sm) {
-        display: none;
-      }
-      .dropdown {
-        > .text {
-          margin: 0 22px 0 6px;
-          padding: 15px 0;
-          font-weight: 700;
-          color: $fontColor3;
-          font-size: 14px;
-        }
-        > i.icon {
-          color: $iconColor;
-        }
-        > .menu {
-          right: 0;
-          top: 86%;
-        }
-      }
-    }
-    .burger-menu {
-      display: none;
-      position: absolute;
-      right: 18px;
-      height: 24px;
-      width: 24px;
-      top: 0;
-      bottom: 0;
-      margin: auto;
-      cursor: pointer;
-      @media (max-width: $sm) {
-        display: block;
-      }
+  
+  &__burger-menu {
+    display: none;
+    position: absolute;
+    right: 18px;
+    height: 24px;
+    width: 24px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    cursor: pointer;
+    @media (max-width: $md) {
+      display: block;
     }
   }
 }
